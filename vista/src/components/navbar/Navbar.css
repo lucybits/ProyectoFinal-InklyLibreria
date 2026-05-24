@@ -1,0 +1,148 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 45px 100px;
+  background: transparent;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.navbar-logo {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: 'ComixLoud', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo span {
+  color: var(--accent-primary);
+  font-family: 'ComixLoud', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 32px;
+}
+
+.navbar-links a {
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--accent-secondary);
+}
+
+.navbar-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.navbar-actions button {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 8px 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar-actions button:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  font-size: 18px;
+}
+
+.theme-toggle-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover svg {
+  transform: rotate(20deg);
+}
+
+.navbar-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 20px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-icons svg:hover {
+  color: var(--accent-secondary);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+  color: var(--accent-secondary);
+}
+
+.navbar-right svg {
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-right svg:hover {
+  color: var(--accent-secondary);
+}
+
+.theme-toggle {
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
+}
+
+.heart-icon {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
