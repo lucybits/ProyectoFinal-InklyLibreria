@@ -31,12 +31,6 @@ function Home() {
           Soy nuevo en Arkhaus
         </button>
       </div>
-
-      <div className="home-wave">
-        <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,60 C400,140 1040,0 1440,60 L1440,140 L0,140 Z" fill={waveColor} />
-        </svg>
-      </div>
     </div>
   )
 }

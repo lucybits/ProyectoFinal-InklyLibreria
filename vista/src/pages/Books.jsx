@@ -41,15 +41,18 @@ function Books() {
         <div className="books-hero-text">
           <div className="books-title-row">
             <h1>LIB<span>ROS</span></h1>
-            <div className="books-search-wrapper">
-              <FiSearch className="search-icon" />
-              <input
-                type="text"
-                placeholder="Buscar por título o autor..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                className="books-search-hero"
-              />
+            <div className="books-search-container">
+              <span className="search-label">BUSCADOR</span>
+              <div className="books-search-wrapper">
+                <FiSearch className="search-icon" />
+                <input
+                  type="text"
+                  placeholder="Buscar por título o autor..."
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  className="books-search-hero"
+                />
+              </div>
             </div>
           </div>
           <p className="books-hero-sub">Explora nuestra gran colección de libros disponibles para compra y renta.</p>
@@ -89,7 +92,17 @@ function Books() {
         </div>
 
         {filtered.length === 0 ? (
-          <p className="books-empty">No se encontraron libros disponibles</p>
+          <div className="books-empty-state">
+            <img 
+              src="https://spaces-cdn.clipsafari.com/q37nllxzqxpd7qtxgx4frpgrdj7i" 
+              alt="Empty road" 
+              className="books-empty-image" 
+            />
+            <div className="books-empty-text">
+              <h3>VAYA, QUÉ SOLITARIO...</h3>
+              <p>No se encontraron libros disponibles</p>
+            </div>
+          </div>
         ) : (
           <div className="books-grid">
             {filtered.map(book => (

@@ -7,6 +7,7 @@ import Books from './pages/Books'
 import Cart from './pages/Cart'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
+import ProtectedRoute from './components/ProtectedRoute'
 import { ThemeProvider } from './context/ThemeContext'
 import './App.css'
 
@@ -18,12 +19,17 @@ function Layout() {
     <>
       {!hideAuthPages && <Navbar />}
       <Routes>
+        {/* Rutas públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/comics" element={<Comics />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/cart" element={<Cart />} />
+        
+        {/* Rutas protegidas (requieren sesión) */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/comics" element={<Comics />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route>
       </Routes>
       {!hideAuthPages && <Footer />}
     </>
