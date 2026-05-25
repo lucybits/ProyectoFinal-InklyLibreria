@@ -5,9 +5,15 @@ import './Footer.css'
 function Footer() {
   const navigate = useNavigate()
   const { darkMode } = useTheme()
+  const waveColor = darkMode ? '#ffffff' : '#111111'
 
   return (
     <footer className={`footer ${darkMode ? 'footer-light' : 'footer-dark'}`}>
+      <div className="footer-wave">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 C400,140 1040,0 1440,60 L1440,140 L0,140 Z" fill={waveColor} />
+        </svg>
+      </div>
       <div className="footer-content">
         <div className="footer-logo">
           ARK<span>HAUS</span>

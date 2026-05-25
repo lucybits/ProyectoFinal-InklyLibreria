@@ -42,15 +42,18 @@ function Comics() {
         <div className="comics-hero-text">
           <div className="comics-title-row">
             <h1>CÓM<span>ICS</span></h1>
-            <div className="comics-search-wrapper">
-              <FiSearch className="search-icon" />
-              <input
-                type="text"
-                placeholder="Buscar por título o autor..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                className="comics-search-hero"
-              />
+            <div className="comics-search-container">
+              <span className="search-label">BUSCADOR</span>
+              <div className="comics-search-wrapper">
+                <FiSearch className="search-icon" />
+                <input
+                  type="text"
+                  placeholder="Buscar por título o autor..."
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  className="comics-search-hero"
+                />
+              </div>
             </div>
           </div>
           <p className="comics-hero-sub">Explora nuestra colección de cómics disponibles para compra y renta.</p>
@@ -90,7 +93,17 @@ function Comics() {
         </div>
 
         {filtered.length === 0 ? (
-          <p className="comics-empty">No se encontraron cómics disponibles</p>
+          <div className="comics-empty-state">
+            <img 
+              src="https://spaces-cdn.clipsafari.com/q37nllxzqxpd7qtxgx4frpgrdj7i" 
+              alt="Empty road" 
+              className="comics-empty-image" 
+            />
+            <div className="comics-empty-text">
+              <h3>VAYA, QUÉ SOLITARIO...</h3>
+              <p>No se encontraron cómics disponibles</p>
+            </div>
+          </div>
         ) : (
           <div className="comics-grid">
             {filtered.map(comic => (

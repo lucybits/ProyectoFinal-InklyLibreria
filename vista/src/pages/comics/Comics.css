@@ -4,8 +4,7 @@
 }
 
 .comics-loading,
-.comics-error,
-.comics-empty {
+.comics-error {
   text-align: center;
   padding: 80px 20px;
   color: var(--text-tertiary);
@@ -20,7 +19,7 @@
   display: grid;
   grid-template-columns: 1.3fr 1.7fr;
   gap: 48px;
-  padding: 120px 80px 64px;
+  padding: 120px 80px 16px;
   align-items: center;
 }
 
@@ -34,14 +33,14 @@
 .comics-title-row {
   display: flex;
   align-items: center;
-  gap: 28px;
-  margin-bottom: 16px;
+  gap: 64px;
+  margin-top: 20px;
   width: 100%;
 }
 
 .comics-hero-text h1 {
   font-family: 'ComixLoud', sans-serif;
-  font-size: 72px;
+  font-size: 92px;
   color: var(--text-primary);
   line-height: 1;
   letter-spacing: 6px;
@@ -55,15 +54,30 @@
   color: var(--accent-primary);
 }
 
+.comics-search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
 .comics-search-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 30px;
-  padding: 10px 18px;
-  width: 250px;
+  border-radius: 6px;
+  padding: 14px 20px;
+  width: 340px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -75,14 +89,14 @@
 
 .comics-search-wrapper:focus-within {
   border-color: var(--accent-primary);
-  box-shadow: 0 4px 20px rgba(226, 25, 26, 0.18);
-  width: 310px;
+  border: 3px solid;
+  width: 400px;
 }
 
 .search-icon {
   color: var(--text-tertiary);
-  font-size: 16px;
-  margin-right: 10px;
+  font-size: 20px;
+  margin-right: 14px;
   flex-shrink: 0;
   transition: color 0.3s ease;
 }
@@ -94,7 +108,7 @@
 .comics-search-hero {
   background: transparent;
   border: none;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-primary);
   outline: none;
   width: 100%;
@@ -106,10 +120,10 @@
 
 .comics-hero-sub {
   color: var(--text-tertiary);
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.5;
   max-width: 400px;
-  margin-top: 16px;
+  margin-top: 40px;
 }
 
 .comics-featured {
@@ -199,7 +213,7 @@
 }
 
 .comics-catalog {
-  padding: 0 80px 80px;
+  padding: 0 80px 0px;
 }
 
 .comics-catalog-header {
@@ -235,6 +249,41 @@
 
 .comics-search::placeholder {
   color: var(--text-tertiary);
+}
+
+.comics-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comics-empty-image {
+  width: 750px;
+  max-width: 100%;
+  filter: grayscale(80%) contrast(120%);
+  object-fit: contain;
+}
+
+.comics-empty-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comics-empty-text h3 {
+  font-family: 'ComixLoud', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.comics-empty-text p {
+  color: var(--text-tertiary);
+  font-size: 16px;
+  margin: 0;
+  max-width: 350px;
+  line-height: 1.5;
 }
 
 .comics-grid {
