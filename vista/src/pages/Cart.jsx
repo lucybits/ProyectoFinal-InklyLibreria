@@ -37,7 +37,7 @@ function Cart() {
           e.currentTarget.style.transform = 'translateY(0)'
         }}
       >
-        Ver Cómics
+        Ver más artículos
       </button>
     </div>
   )

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
 import { FiSun, FiMoon, FiArrowLeft } from 'react-icons/fi'
 import { useTheme } from '../../context/ThemeContext'
 import { login } from '../../services/authService'
@@ -12,6 +12,10 @@ function Login() {
   const [form, setForm] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+
+  if (localStorage.getItem('user')) {
+    return <Navigate to="/comics" replace />
+  }
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })

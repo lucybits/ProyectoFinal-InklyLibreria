@@ -202,17 +202,6 @@
   position: relative;
 }
 
-.navbar-links a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--accent-primary);
-  border-radius: 2px;
-}
-
 .dropdown-info {
   display: flex;
   flex-direction: column;

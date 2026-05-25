@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
+import { createPortal } from 'react-dom'
 import { FiSun, FiMoon, FiArrowLeft, FiChevronDown } from 'react-icons/fi'
 import { useTheme } from '../../context/ThemeContext'
 import { register } from '../../services/authService'
@@ -9,6 +10,10 @@ import './Register.css'
 function Register() {
   const navigate = useNavigate()
   const { darkMode, toggleTheme } = useTheme()
+  
+  if (localStorage.getItem('user')) {
+    return <Navigate to="/comics" replace />
+  }
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -261,11 +266,12 @@ function Register() {
         </div>
       </div>
 
-      {showScrollIndicator && (
+      {showScrollIndicator && createPortal(
         <div className="register-scroll-indicator">
           <span>Desliza para ver más</span>
           <FiChevronDown className="bounce-arrow" />
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   )

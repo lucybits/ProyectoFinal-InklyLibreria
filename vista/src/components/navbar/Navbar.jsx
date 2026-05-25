@@ -28,7 +28,6 @@ function Navbar() {
     }
 
     checkUser()
-    // Listen to changes in localStorage or location
     window.addEventListener('storage', checkUser)
     return () => {
       window.removeEventListener('storage', checkUser)
@@ -88,17 +87,14 @@ function Navbar() {
             <a onClick={() => navigate('/rentals')} className={isActive('/rentals') ? 'active' : ''}>RENTAS</a>
           </div>
           <div className="navbar-actions-icons">
-            {/* Cart Icon */}
             <span className="navbar-icon-btn" onClick={() => navigate('/cart')} title="Carrito">
               <FiShoppingCart />
             </span>
 
-            {/* Theme Toggle */}
             <span className="navbar-icon-btn theme-btn" onClick={toggleTheme} title="Cambiar tema">
               {darkMode ? <FiSun /> : <FiMoon />}
             </span>
 
-            {/* User Profile Dropdown or Login Button */}
             {user ? (
               <div className="user-profile-menu">
                 <span className="navbar-icon-btn user-btn" onClick={() => setShowDropdown(!showDropdown)} title={user.name}>
