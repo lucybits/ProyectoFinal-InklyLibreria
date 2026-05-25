@@ -1,12 +1,12 @@
 # Arkhaus
 
-**Web app de librería digital para compra y renta de libros y cómics.**  
-Desarrollada con **React y Vite** en el frontend, y **ASP.NET Core** en el backend.
+**Web app de librería digital para compra y renta de libros y cómics**  
+Desarrollada con **React y Vite** en el frontend, y **ASP.NET Core** en el backend
 
 ---
 
-## Integrantes del Proyecto
-Proyecto final de la asignatura de **Programación Web** del Instituto Tecnológico de Hermosillo.
+## Integrantes del proyecto
+Proyecto final de la asignatura de **Programación Web** del Instituto Tecnológico de Hermosillo
 
 *   **Cota Celaya Axel**
 *   **Casillas Pacheco Lucía Anahel**
@@ -24,6 +24,6 @@ Proyecto final de la asignatura de **Programación Web** del Instituto Tecnológ
 ---
 
 ## Tecnologías
-*   **Frontend.** React, Vite, React Router DOM, Vanilla CSS.
-*   **Backend.** ASP.NET Core, C#.
-*   **Versionamiento.** Git & GitHub.
+*   **Frontend.** React, Vite, React Router DOM, Vanilla CSS
+*   **Backend.** ASP.NET Core, C#
+*   **Versionamiento.** Git & GitHub
