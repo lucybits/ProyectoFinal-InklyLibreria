@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { FiSun, FiMoon, FiArrowLeft } from 'react-icons/fi'
 import { useTheme } from '../../context/ThemeContext'
 import { login } from '../../services/authService'
+import Snackbar from '../../components/snackbar/Snackbar'
 import './Login.css'
 
 function Login() {
@@ -39,6 +40,8 @@ function Login() {
 
   return (
     <div className="login-container">
+      <Snackbar message={error} onClose={() => setError('')} />
+
       <button className="login-back" onClick={() => navigate('/')}>
         <FiArrowLeft />
       </button>
@@ -75,8 +78,6 @@ function Login() {
               onChange={handleChange}
             />
           </div>
-
-          {error && <p className="login-error">{error}</p>}
 
           <button className="login-btn" onClick={handleSubmit} disabled={loading}>
             {loading ? 'Cargando...' : 'Iniciar sesión'}

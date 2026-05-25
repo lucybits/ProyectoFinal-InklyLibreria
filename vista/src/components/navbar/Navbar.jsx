@@ -21,7 +21,7 @@ function Navbar() {
           <a onClick={() => navigate('/about')}>Nosotros</a>
           <a onClick={() => navigate('/faq')}>FAQ</a>
           <a onClick={() => navigate('/contact')}>Contacto</a>
-          <FaGithub onClick={() => window.open('https://github.com/tu-repo', '_blank')} />
+          <FaGithub onClick={() => window.open('https://github.com/lucybits/ProyectoFinal-ArkhausLibreria', '_blank')} />
           <span onClick={toggleTheme} className="theme-toggle">
             {darkMode ? <FiSun /> : <FiMoon />}
           </span>
