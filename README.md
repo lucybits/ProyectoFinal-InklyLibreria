@@ -5,7 +5,7 @@ Desarrollada con **React y Vite** en el frontend, y **ASP.NET Core** en el backe
 
 ---
 
-## Integrantes del Proyecto
+## Integrantes del proyecto
 Proyecto final de la asignatura de **Programación Web** del Instituto Tecnológico de Hermosillo.
 
 *   **Cota Celaya Axel**
@@ -15,11 +15,11 @@ Proyecto final de la asignatura de **Programación Web** del Instituto Tecnológ
 ---
 
 ## Características principales
--Inicio de sesión y registro de usuarios con protección de rutas privadas.
--Exploración separada para Libros y Cómics.
--Filtros rápidos por título o autor con un diseño premium y animaciones fluidas.
--Sistema de precios para compra directa y rentas temporales.
--Interfaz legible y fluida, procurando seguir el principio de diseño Frictionless Design
+*    **Inicio de sesión y registro de usuarios con protección de rutas privadas.
+*    **Exploración separada para Libros y Cómics.
+*    **Filtros rápidos por título o autor con un diseño premium y animaciones fluidas.
+*    **Sistema de precios para compra directa y rentas temporales.
+*    **Interfaz legible y fluida, procurando seguir el principio de diseño Frictionless Design
 
 ---
 
