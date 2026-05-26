@@ -1,0 +1,364 @@
+.comics-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.comics-loading,
+.comics-error {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+
+.comics-error {
+  color: var(--accent-primary);
+}
+
+.comics-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1.7fr;
+  gap: 48px;
+  padding: 120px 80px 16px;
+  align-items: center;
+}
+
+.comics-hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 16px;
+}
+
+.comics-title-row {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.comics-hero-text h1 {
+  font-family: 'ComixLoud', sans-serif;
+  font-size: 92px;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: 6px;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.comics-hero-text h1 span {
+  font-family: 'ComixLoud', sans-serif;
+  letter-spacing: 4px;
+  color: var(--accent-primary);
+}
+
+.comics-search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+.comics-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 14px 20px;
+  width: 340px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comics-search-wrapper:hover {
+  border-color: var(--text-tertiary);
+  transform: translateY(-1px);
+}
+
+.comics-search-wrapper:focus-within {
+  border-color: var(--accent-primary);
+  border: 3px solid;
+  width: 400px;
+}
+
+.search-icon {
+  color: var(--text-tertiary);
+  font-size: 20px;
+  margin-right: 14px;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.comics-search-wrapper:focus-within .search-icon {
+  color: var(--accent-primary);
+}
+
+.comics-search-hero {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  color: var(--text-primary);
+  outline: none;
+  width: 100%;
+}
+
+.comics-search-hero::placeholder {
+  color: var(--text-tertiary);
+}
+
+.comics-hero-sub {
+  color: var(--text-tertiary);
+  font-size: 22px;
+  line-height: 1.5;
+  max-width: 400px;
+  margin-top: 40px;
+}
+
+.comics-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  height: 340px;
+}
+
+.featured-card {
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-4px);
+}
+
+.featured-main {
+  grid-column: span 2;
+}
+
+.featured-cover {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.featured-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'ComixLoud', sans-serif;
+  font-size: 64px;
+  color: var(--accent-primary);
+}
+
+.featured-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+}
+
+.featured-author {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.featured-title {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.featured-prices {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.price-buy {
+  font-size: 14px;
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+
+.price-rent {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+}
+
+.comics-catalog {
+  padding: 0 80px 0px;
+}
+
+.comics-catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comics-catalog-header h2 {
+  font-size: 18px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.comics-search {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  padding: 8px 0;
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  width: 240px;
+  transition: border-color 0.3s ease;
+}
+
+.comics-search:focus {
+  border-bottom-color: var(--accent-primary);
+}
+
+.comics-search::placeholder {
+  color: var(--text-tertiary);
+}
+
+.comics-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comics-empty-image {
+  width: 750px;
+  max-width: 100%;
+  filter: grayscale(80%) contrast(120%);
+  object-fit: contain;
+}
+
+.comics-empty-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comics-empty-text h3 {
+  font-family: 'ComixLoud', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.comics-empty-text p {
+  color: var(--text-tertiary);
+  font-size: 16px;
+  margin: 0;
+  max-width: 350px;
+  line-height: 1.5;
+}
+
+.comics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.comic-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.comic-card:hover {
+  transform: translateY(-4px);
+}
+
+.comic-card-cover {
+  aspect-ratio: 2/3;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-tertiary);
+  margin-bottom: 12px;
+}
+
+.comic-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comic-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'ComixLoud', sans-serif;
+  font-size: 48px;
+  color: var(--accent-primary);
+}
+
+.rental-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--accent-secondary);
+  color: #111;
+  font-size: 9px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.comic-card-info {
+  padding: 0 4px;
+}
+
+.comic-card-author {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.comic-card-title {
+  font-size: 13px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.comic-card-prices {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
