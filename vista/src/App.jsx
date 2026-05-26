@@ -19,6 +19,7 @@ function Layout() {
     <>
       {!hideAuthPages && <Navbar />}
       <div key={location.pathname} className="page-transition">
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
