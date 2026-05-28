@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Arkhaus.Migrations
 {
     [DbContext(typeof(ArkhausDbContext))]
-    [Migration("20260524203627_InitialCreate")]
+    [Migration("20260528210410_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
