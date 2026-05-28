@@ -1,12 +1,9 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useTheme } from '../../context/ThemeContext'
 import './Home.css'
 
 function Home() {
   const navigate = useNavigate()
-  const { darkMode } = useTheme()
-  const waveColor = darkMode ? '#ffffff' : '#111111'
 
   useEffect(() => {
     const user = localStorage.getItem('user')

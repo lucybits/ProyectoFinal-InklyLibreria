@@ -10,10 +10,8 @@ import './Register.css'
 function Register() {
   const navigate = useNavigate()
   const { darkMode, toggleTheme } = useTheme()
+  const hasUser = Boolean(localStorage.getItem('user'))
   
-  if (localStorage.getItem('user')) {
-    return <Navigate to="/comics" replace />
-  }
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -95,6 +93,10 @@ function Register() {
     } finally {
       setLoading(false)
     }
+  }
+
+  if (hasUser) {
+    return <Navigate to="/comics" replace />
   }
 
   return (

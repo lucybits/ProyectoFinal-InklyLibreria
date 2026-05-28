@@ -19,7 +19,7 @@ function Navbar() {
       if (storedUser) {
         try {
           setUser(JSON.parse(storedUser))
-        } catch (e) {
+        } catch {
           setUser(null)
         }
       } else {

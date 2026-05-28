@@ -6,6 +6,7 @@ function Footer() {
   const navigate = useNavigate()
   const { darkMode } = useTheme()
   const waveColor = darkMode ? '#ffffff' : '#111111'
+  const hasUser = Boolean(localStorage.getItem('user'))
 
   return (
     <footer className={`footer ${darkMode ? 'footer-light' : 'footer-dark'}`}>
@@ -23,8 +24,14 @@ function Footer() {
         <div className="footer-columns">
           <div className="footer-column">
             <h4>Cuenta</h4>
-            <a onClick={() => navigate('/login')}>Iniciar sesión</a>
-            <a onClick={() => navigate('/register')}>Registrarse</a>
+            {!hasUser ? (
+              <>
+                <a onClick={() => navigate('/login')}>Iniciar sesión</a>
+                <a onClick={() => navigate('/register')}>Registrarse</a>
+              </>
+            ) : (
+              <a onClick={() => navigate('/cart')}>Mi carrito</a>
+            )}
           </div>
 
           <div className="footer-column">

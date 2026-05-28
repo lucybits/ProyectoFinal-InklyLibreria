@@ -14,10 +14,6 @@ function Books() {
   const ITEMS_PER_PAGE = 10
 
   useEffect(() => {
-    setCurrentPage(1)
-  }, [search])
-
-  useEffect(() => {
     getBooks()
       .then(data => {
         setBooks(data)
@@ -55,7 +51,10 @@ function Books() {
                   type="text"
                   placeholder="Buscar por título o autor..."
                   value={search}
-                  onChange={e => setSearch(e.target.value)}
+                  onChange={e => {
+                    setSearch(e.target.value)
+                    setCurrentPage(1)
+                  }}
                   className="books-search-hero"
                 />
               </div>

@@ -14,10 +14,6 @@ function Comics() {
   const ITEMS_PER_PAGE = 10
 
   useEffect(() => {
-    setCurrentPage(1)
-  }, [search])
-
-  useEffect(() => {
     getComics()
       .then(data => {
         setComics(data)
@@ -56,7 +52,10 @@ function Comics() {
                   type="text"
                   placeholder="Buscar por título o autor..."
                   value={search}
-                  onChange={e => setSearch(e.target.value)}
+                  onChange={e => {
+                    setSearch(e.target.value)
+                    setCurrentPage(1)
+                  }}
                   className="comics-search-hero"
                 />
               </div>
