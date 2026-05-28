@@ -10,6 +10,12 @@ function Comics() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [search, setSearch] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const ITEMS_PER_PAGE = 10
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [search])
 
   useEffect(() => {
     getComics()
@@ -23,14 +29,14 @@ function Comics() {
       })
   }, [])
 
-  const featured = [...comics]
-    .sort((a, b) => b.stock - a.stock)
-    .slice(0, 3)
 
   const filtered = comics.filter(c =>
     c.title.toLowerCase().includes(search.toLowerCase()) ||
     c.author.toLowerCase().includes(search.toLowerCase())
   )
+
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE)
+  const paginatedComics = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
 
   if (loading) return <div className="comics-loading">Cargando cómics...</div>
   if (error) return <div className="comics-error">{error}</div>
@@ -58,38 +64,11 @@ function Comics() {
           </div>
           <p className="comics-hero-sub">Explora nuestra colección de cómics disponibles para compra y renta.</p>
         </div>
-
-        <div className="comics-featured">
-          {featured.map((comic, i) => (
-            <div
-              key={comic.id}
-              className={`featured-card ${i === 0 ? 'featured-main' : 'featured-side'}`}
-              onClick={() => navigate(`/product/${comic.id}?type=comic`)}
-            >
-              <div className="featured-cover">
-                {comic.imageUrl
-                  ? <img src={comic.imageUrl} alt={comic.title} />
-                  : <div className="featured-placeholder">{comic.title[0]}</div>
-                }
-              </div>
-              <div className="featured-info">
-                <p className="featured-author">{comic.author}</p>
-                <h3 className="featured-title">{comic.title}</h3>
-                <div className="featured-prices">
-                  <span className="price-buy">${comic.price}</span>
-                  {comic.isAvailableForRental && (
-                    <span className="price-rent">Renta ${comic.rentalPrice}</span>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
       <div className="comics-catalog">
         <div className="comics-catalog-header">
-          <h2>Todos los cómics</h2>
+          <h2>Todos los cómics <span className="count-badge">{filtered.length}</span></h2>
         </div>
 
         {filtered.length === 0 ? (
@@ -105,34 +84,56 @@ function Comics() {
             </div>
           </div>
         ) : (
-          <div className="comics-grid">
-            {filtered.map(comic => (
-              <div
-                key={comic.id}
-                className="comic-card"
-                onClick={() => navigate(`/product/${comic.id}?type=comic`)}
-              >
-                <div className="comic-card-cover">
-                  {comic.imageUrl
-                    ? <img src={comic.imageUrl} alt={comic.title} />
-                    : <div className="comic-card-placeholder">{comic.title[0]}</div>
-                  }
-                  {comic.isAvailableForRental && (
-                    <span className="rental-badge">Rentable</span>
-                  )}
-                </div>
-                <div className="comic-card-info">
-                  <p className="comic-card-author">{comic.author}</p>
-                  <h3 className="comic-card-title">{comic.title}</h3>
-                  <div className="comic-card-prices">
-                    <span className="price-buy">${comic.price}</span>
+          <div className="comics-grid-wrapper">
+            <div className="comics-grid">
+              {paginatedComics.map((comic, index) => (
+                <div
+                  key={comic.id}
+                  className="comic-card"
+                  onClick={() => navigate(`/product/${comic.id}?type=comic`)}
+                  style={{ animationDelay: `${index * 0.05}s` }}
+                >
+                  <div className="comic-card-cover">
+                    {comic.imageUrl
+                      ? <img src={comic.imageUrl} alt={comic.title} />
+                      : <div className="comic-card-placeholder">{comic.title[0]}</div>
+                    }
                     {comic.isAvailableForRental && (
-                      <span className="price-rent">Renta ${comic.rentalPrice}</span>
+                      <span className="rental-badge">Rentable</span>
                     )}
                   </div>
+                  <div className="comic-card-info">
+                    <p className="comic-card-author">{comic.author}</p>
+                    <h3 className="comic-card-title">{comic.title}</h3>
+                    <div className="comic-card-prices">
+                      <span className="price-buy">${comic.price} MXN</span>
+                      {comic.isAvailableForRental && (
+                        <span className="price-rent">Renta ${comic.rentalPrice} MXN</span>
+                      )}
+                    </div>
+                  </div>
                 </div>
+              ))}
+            </div>
+            {totalPages > 1 && (
+              <div className="pagination-controls">
+                <button 
+                  disabled={currentPage === 1} 
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  className="pagination-btn"
+                >
+                  Anterior
+                </button>
+                <span className="pagination-info">Página {currentPage} de {totalPages}</span>
+                <button 
+                  disabled={currentPage === totalPages} 
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  className="pagination-btn"
+                >
+                  Siguiente
+                </button>
               </div>
-            ))}
+            )}
           </div>
         )}
       </div>
