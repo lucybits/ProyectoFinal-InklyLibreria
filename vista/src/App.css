@@ -18,7 +18,7 @@
 
 .page-transition {
   animation: fadeIn 0.25s ease forwards;
-  min-height: 84vh;
+  min-height: 86vh;
   display: flex;
   flex-direction: column;
   flex: 1;
