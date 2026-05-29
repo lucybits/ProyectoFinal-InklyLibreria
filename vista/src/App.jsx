@@ -8,6 +8,7 @@ import Cart from './pages/Cart'
 import ProductDetail from './pages/product/ProductDetail'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
+import Rentals from './pages/rentals/Rentals'
 import ProtectedRoute from './components/ProtectedRoute'
 import { ThemeProvider } from './context/ThemeContext'
 import { CartProvider } from './context/CartContext'
@@ -36,6 +37,7 @@ function Layout() {
             <Route path="/books" element={<Books />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
+                <Route path="/rentals" element={<Rentals />} /> 
           </Route>
         </Routes>
       </div>
