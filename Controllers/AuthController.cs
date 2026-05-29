@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Arkhaus.Data;
+using Arkhaus.Dtos;
 using Arkhaus.Models;
 
 namespace Arkhaus.Controllers
@@ -16,7 +17,7 @@ namespace Arkhaus.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        public IActionResult Login([FromBody] LoginDto request)
         {
             var customer = _context.Customers
                 .FirstOrDefault(c => c.Email == request.Email && c.Password == request.Password);
@@ -57,9 +58,4 @@ namespace Arkhaus.Controllers
         }
     }
 
-    public class LoginRequest
-    {
-        public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-    }
 }

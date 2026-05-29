@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Arkhaus.Data;
+using Arkhaus.Dtos;
 using Arkhaus.Models;
 
 namespace Arkhaus.Controllers
@@ -32,27 +33,40 @@ namespace Arkhaus.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Book book)
+        public async Task<IActionResult> Create([FromBody] BookDto request)
         {
+            var book = new Book
+            {
+                Title = request.Title,
+                Author = request.Author,
+                Description = request.Description,
+                Price = request.Price,
+                RentalPrice = request.RentalPrice,
+                Stock = request.Stock,
+                ImageUrl = request.ImageUrl,
+                IsAvailableForRental = request.IsAvailableForRental,
+                CategoryId = request.CategoryId
+            };
+
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
             return Ok(book);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Book book)
+        public async Task<IActionResult> Update(int id, [FromBody] BookDto request)
         {
             var existing = await _context.Books.FindAsync(id);
             if (existing == null) return NotFound();
-            existing.Title = book.Title;
-            existing.Author = book.Author;
-            existing.Description = book.Description;
-            existing.Price = book.Price;
-            existing.RentalPrice = book.RentalPrice;
-            existing.Stock = book.Stock;
-            existing.ImageUrl = book.ImageUrl;
-            existing.IsAvailableForRental = book.IsAvailableForRental;
-            existing.CategoryId = book.CategoryId;
+            existing.Title = request.Title;
+            existing.Author = request.Author;
+            existing.Description = request.Description;
+            existing.Price = request.Price;
+            existing.RentalPrice = request.RentalPrice;
+            existing.Stock = request.Stock;
+            existing.ImageUrl = request.ImageUrl;
+            existing.IsAvailableForRental = request.IsAvailableForRental;
+            existing.CategoryId = request.CategoryId;
             await _context.SaveChangesAsync();
             return Ok(existing);
         }

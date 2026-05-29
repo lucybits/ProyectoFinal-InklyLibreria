@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Arkhaus.Data;
+using Arkhaus.Dtos;
 using Arkhaus.Models;
 
 namespace Arkhaus.Controllers
@@ -51,8 +52,36 @@ namespace Arkhaus.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Rental rental)
+        public async Task<IActionResult> Create([FromBody] RentalDto request)
         {
+            if (request.CustomerId <= 0)
+                return BadRequest(new { message = "Cliente invalido para registrar la renta." });
+
+            var customerExists = await _context.Customers.AnyAsync(c => c.Id == request.CustomerId);
+            if (!customerExists)
+                return BadRequest(new { message = "El cliente de la renta no existe." });
+
+            var hasBook = request.BookId.HasValue;
+            var hasComic = request.ComicId.HasValue;
+            if (hasBook == hasComic)
+                return BadRequest(new { message = "La renta debe ser de un libro o un comic, no ambos." });
+
+            if (hasBook && !await _context.Books.AnyAsync(b => b.Id == request.BookId.GetValueOrDefault()))
+                return BadRequest(new { message = "El libro de la renta no existe." });
+
+            if (hasComic && !await _context.Comics.AnyAsync(c => c.Id == request.ComicId.GetValueOrDefault()))
+                return BadRequest(new { message = "El comic de la renta no existe." });
+
+            var rental = new Rental
+            {
+                CustomerId = request.CustomerId,
+                BookId = request.BookId,
+                ComicId = request.ComicId,
+                EndDate = request.EndDate,
+                Status = string.IsNullOrWhiteSpace(request.Status) ? "active" : request.Status,
+                Price = request.Price
+            };
+
             _context.Rentals.Add(rental);
             await _context.SaveChangesAsync();
             return Ok(new
@@ -69,11 +98,11 @@ namespace Arkhaus.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateStatus(int id, [FromBody] Rental rental)
+        public async Task<IActionResult> UpdateStatus(int id, [FromBody] RentalDto request)
         {
             var existing = await _context.Rentals.FindAsync(id);
             if (existing == null) return NotFound();
-            existing.Status = rental.Status;
+            existing.Status = request.Status;
             await _context.SaveChangesAsync();
             return Ok(existing);
         }
