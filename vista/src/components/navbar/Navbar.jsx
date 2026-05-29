@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { FaGithub } from 'react-icons/fa'
 import { FiSun, FiMoon, FiUser, FiShoppingCart, FiLogOut } from 'react-icons/fi'
 import { useTheme } from '../../context/ThemeContext'
+import { isAdminUser } from '../../utils/auth'
 import './Navbar.css'
 
 function Navbar() {
@@ -107,7 +108,7 @@ function Navbar() {
                       <p className="dropdown-email">{user.email}</p>
                     </div>
                     <div className="dropdown-divider"></div>
-                    {user.isAdmin && (
+                    {isAdminUser(user) && (
                       <button className="dropdown-item admin-btn" onClick={() => { navigate('/admin'); setShowDropdown(false); }}>
                         Panel Admin
                       </button>

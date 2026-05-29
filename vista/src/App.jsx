@@ -5,9 +5,12 @@ import Register from './pages/register/Register'
 import Comics from './pages/comics/Comics'
 import Books from './books/Books'
 import Cart from './pages/Cart'
+import Shipment from './pages/shipment/Shipment'
+import Admin from './pages/Admin'
 import ProductDetail from './pages/product/ProductDetail'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
+import Rentals from './pages/rentals/Rentals'
 import ProtectedRoute from './components/ProtectedRoute'
 import { ThemeProvider } from './context/ThemeContext'
 import { CartProvider } from './context/CartContext'
@@ -36,6 +39,12 @@ function Layout() {
             <Route path="/books" element={<Books />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/rentals" element={<Rentals />} />
+            <Route path="/shipment" element={<Shipment />} />
+          </Route>
+
+          <Route element={<ProtectedRoute adminOnly />}>
+            <Route path="/admin" element={<Admin />} />
           </Route>
         </Routes>
       </div>

@@ -55,7 +55,17 @@ namespace Arkhaus.Controllers
         {
             _context.Rentals.Add(rental);
             await _context.SaveChangesAsync();
-            return Ok(rental);
+            return Ok(new
+            {
+                rental.Id,
+                rental.CustomerId,
+                rental.BookId,
+                rental.ComicId,
+                rental.StartDate,
+                rental.EndDate,
+                rental.Status,
+                rental.Price
+            });
         }
 
         [HttpPut("{id}")]
