@@ -1,0 +1,38 @@
+#root {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-transition {
+  animation: fadeIn 0.25s ease forwards;
+  min-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: var(--bg-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.page-transition.with-navbar-offset{
+  padding-top: 110px;
+}
+
+@media (max-width: 900px){
+  .page-transition.with-navbar-offset{
+    padding-top: 96px;
+  }
+}
