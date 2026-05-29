@@ -1,0 +1,106 @@
+.home-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../assets/images/background.webp') center center / cover no-repeat;
+  opacity: 0.06;
+  z-index: 0;
+  filter: grayscale(30%) sepia(70%) hue-rotate(620deg) saturate(120%);
+  transition: opacity 0.3s ease;
+}
+
+[data-theme="light"] .home-container::before {
+  opacity: 0.04;
+}
+
+.home-description,
+.home-buttons {
+  position: relative;
+  z-index: 1;
+}
+
+.home-description {
+  color: var(--text-primary);
+  font-size: 26px;
+  letter-spacing: 1px;
+  max-width: 800px;
+  margin-bottom: 24px;
+  font-family: 'ComixLoud', sans-serif;
+}
+
+.home-subdescription {
+  color: var(--text-tertiary);
+  font-size: 18px;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s ease, letter-spacing 0.2s ease;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  padding: 12px 32px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s ease, letter-spacing 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #c01516;
+  letter-spacing: 3px;
+  transform: scaleY(1.08);
+}
+
+.btn-outline:hover {
+  background: var(--hover-bg);
+  letter-spacing: 3px;
+  transform: scaleY(1.08);
+}
+
+.btn-primary:active {
+  transform: scaleY(0.92) scaleX(1.05);
+  letter-spacing: 0px;
+}
+
+.btn-outline:active {
+  transform: scaleY(0.92) scaleX(1.05);
+  letter-spacing: 0px;
+}
